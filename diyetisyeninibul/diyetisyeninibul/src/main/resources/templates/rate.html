@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<p id="completed">Siparişiniz teslim edildi</p>
+	<p id="rate">Diyetisyeninizi puanlamak ister misiniz?</p>
+	<form th:action="@{'/rate/' +${diyetisyen.diyetisyenID}}" method="post">
+		<table>
+			<tr>
+				<td>Puanınız:</td>
+				<td><input type="number" id="rating" min="1" max="5" th:field="*{diyetisyen.rating}" /></td>
+			</tr>
+			<tr>
+				<td><button id="update" type="submit">Save</button></td>
+				<td><button type=button id="login" th:onclick="|window.location.href='/login'|">İleri</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

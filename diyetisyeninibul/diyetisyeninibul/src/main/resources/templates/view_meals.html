@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-block">
+				<form action="#" th:action="@{/save}" th:object="${diyetisyen}"
+					method="post">
+					<table class="table table-striped table-hover table-bordered">
+						<thead>
+							<tr>
+								<th>Kahvaltı</th>
+								<th>Öğle Yemeği</th>
+								<th>Akşam Yemeği</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox" id="breakfast" th:text="${diyetisyen.breakfast}"/>
+								<img th:src="${diyetisyen.breakfastPhoto}"/></td>
+								<td><input type="checkbox" id="lunch" th:text="${diyetisyen.lunch}"/>
+								<img th:src="${diyetisyen.lunchPhoto}"/></td>
+								<td><input type="checkbox" id="dinner" th:text="${diyetisyen.dinner}"/>
+								<img th:src="${diyetisyen.dinnerPhoto}"/></td>
+								<td><a th:href="@{'/confirm/'+ ${diyetisyen.diyetisyenID}}"
+								class="btn btn-primary" id="submit">Seç</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="commons/javascript_url ::  javascript_url"></th:block>
+</body>
+</html>

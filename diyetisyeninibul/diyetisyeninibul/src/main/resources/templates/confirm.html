@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<body>
+	<p id="confirmMessage">Siparişiniz alındı!</p>
+	<form th:action="@{'/rate/' +${diyetisyen.diyetisyenID}}" method="post">
+	</form>	
+	<script th:inline="javascript">
+		var timer = setTimeout(function() {
+			var id = /*[[${diyetisyen.diyetisyenID}]]*/ "";
+			window.location.href='/rate/' + id
+		}, 3000);
+	</script>
+</body>
+</html>

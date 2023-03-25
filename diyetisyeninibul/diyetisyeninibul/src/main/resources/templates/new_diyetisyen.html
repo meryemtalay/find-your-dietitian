@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+	<h1>Diyetisyen Ekle</h1>
+	<br />
+	<form action="#" th:action="@{/save}" th:object="${diyetisyen}"
+		method="post" enctype="multipart/form-data">
+
+		<table>
+			<tr>
+				<td>Fotoğraf</td>
+				<td><input type="file" name="image" id="picturebutton" accept="image/png, image/jpeg" /></td>
+			</tr>
+			<tr>
+				<td>Adı:</td>
+				<td><input type="text" id="firstName" th:field="*{firstName}" /></td>
+			</tr>
+			<tr>
+				<td>Soyadı:</td>
+				<td><input type="text" id="lastName" th:field="*{lastName}" /></td>
+			</tr>
+			<tr>
+				<td>Bio:</td>
+				<td><input type="text" id="bio" th:field="*{bio}" /></td>
+			</tr>
+			<tr>
+				<td>Ortalama Kullanıcı Puanı:</td>
+				<td><input type="text" id="rating" th:field="*{rating}" /></td>
+			</tr>
+			<tr>
+				<td><button id="submit" type="submit">Save</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

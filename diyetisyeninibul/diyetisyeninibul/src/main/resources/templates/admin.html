@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-block">
+				<a th:href="@{/new}" class="btn btn-primary" id="add">Diyetisyen
+					Ekle</a>
+				<table class="table table-striped table-hover table-bordered">
+					<thead>
+						<tr>
+							<th></th>
+							<th>ID</th>
+							<th>Ad</th>
+							<th>Soyad</th>
+							<th>Bio</th>
+							<th>Rating</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="diyetisyen: ${diyetisyenler}">
+							<td><img th:src="${diyetisyen.diyetisyenPhoto}" /></td>
+							<td th:text="${diyetisyen.diyetisyenID}">ID</td>
+							<td th:text="${diyetisyen.firstName}">Adı</td>
+							<td th:text="${diyetisyen.lastName}">Soyadı</td>
+							<td th:text="${diyetisyen.bio}">Bio</td>
+							<td th:text="${diyetisyen.rating}">Rating</td>
+							<td><a th:href="@{'/edit/' +${diyetisyen.diyetisyenID}}"
+								class="btn btn-primary" id="edit">Düzenle</a> <a
+								class="btn btn-warning" id="delete"
+								th:href="@{'/delete/' +${diyetisyen.diyetisyenID}}">Sil</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="commons/javascript_url ::  javascript_url"></th:block>
+</body>
+</html>
+
+
+
+

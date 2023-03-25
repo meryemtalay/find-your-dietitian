@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<title>Diyetisyen Girişi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Diyetisyen Girişi</h1>
+	<form name="form" onSubmit="return redirect()">
+		<table>
+			<tr>
+				<td>E-mail:</td>
+				<td><input id="email" type="text" /></td>
+			</tr>
+			<tr>
+				<td>Şifre:</td>
+				<td><input type="password" id="password" /></td>
+			</tr>
+			<tr>
+				<script type="text/javascript">
+					function redirect() {
+						var input = document.getElementById("email");
+						if (input.value == "diyetisyen1") {
+							window.location = "/edit_meals/1";
+						} else if (input.value == "diyetisyen2") {
+							window.location = "/edit_meals/2";
+						} else if (input.value == "diyetisyen3") {
+							window.location = "/edit_meals/3";
+						}
+
+						return false; // prevent further bubbling of event
+					}
+				</script>
+				<td><input type="button" id="login" onclick="redirect()" value="Giriş yap"></input></td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>
